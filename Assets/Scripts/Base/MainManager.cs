@@ -25,7 +25,7 @@ public class MainManager : MonoBehaviour
 
     public void OnJoinButtonClicked()
     {
-        int toggleIdx = -1;
+        int toggleIdx = 0;
 
         for (int i = 0; i < toggleList.Count; i++)
         {
