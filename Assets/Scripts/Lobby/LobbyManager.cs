@@ -14,11 +14,17 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     public Canvas canvas;
     public GameObject myAvatarUI;
     public GameObject avatarSelectUI;
+    public GameObject serviceChoiceUI;
+    public GameObject commissionUI;
+    public GameObject estimationUI;
     public GameObject worldButtonUI;
     public GameObject buildingButtonUI;
     public List<GameObject> buildingButtonsList;
     public GameObject officeButtonUI;
     public GameObject lawyerProfileUI;
+
+    public GameObject reservationTabUI;
+    public GameObject commissionTabUI;
 
     public GameObject myOfficeBtn;
 
@@ -45,6 +51,8 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
         if (PlayerPrefs.GetInt("type") == 1)
             myOfficeBtn.SetActive(true);
+
+        avatarSelectUI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -59,11 +67,51 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
         PlayerPrefs.SetInt("Avatar", idx);
 
-        myAvatarUI.SetActive(true);
+        //myAvatarUI.SetActive(true);
         myAvatar.idx = idx;
         myAvatar.gameObject.SetActive(true);
 
+        serviceChoiceUI.SetActive(true);
+    }
+
+    public void OnServiceChoiceClicked(int side)
+    {
+        serviceChoiceUI.SetActive(false);
+
+        if (side == 0)
+        {
+            myAvatarUI.SetActive(true);
+            worldButtonUI.SetActive(true);
+
+        }
+        else
+        {
+            commissionUI.SetActive(true);
+        }
+
+    }
+
+    public void OnCommissionWritingCompleteBtnClicked()
+    {
+        commissionUI.SetActive(false);
+
+        myAvatarUI.SetActive(true);
         worldButtonUI.SetActive(true);
+    }
+
+    public void OnReservationCompleteBtnClicked()
+    {
+
+    }
+
+    public void OnReservationClicked()
+    {
+
+    }
+
+    public void OnEstimationClicked()
+    {
+
     }
 
     public void OnWorldBtnClicked(World world)
