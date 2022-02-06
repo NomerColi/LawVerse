@@ -155,6 +155,9 @@ public class WorldPlayer : MonoBehaviourPunCallbacks
 		{
 			string s = Input.GetKey(KeyCode.LeftShift) ? "isRunning" : "isWalking";
 			animator.SetBool(s, true);
+
+			s = !Input.GetKey(KeyCode.LeftShift) ? "isRunning" : "isWalking";
+			animator.SetBool(s, false);
 		}
 		else
 		{
