@@ -106,14 +106,14 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     public void OnReservationClicked()
     {
-        reservationTabUI.SetActive(true);
+        reservationTabUI.SetActive(!reservationTabUI.activeSelf);
         commissionTabUI.SetActive(false);
     }
 
     public void OnCommissionClicked()
     {
         reservationTabUI.SetActive(false);
-        commissionTabUI.SetActive(true);
+        commissionTabUI.SetActive(!commissionTabUI.activeSelf);
     }
 
     public void OnWorldBtnClicked(World world)
