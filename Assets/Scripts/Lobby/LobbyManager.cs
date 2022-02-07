@@ -102,6 +102,10 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     public void OnReservationCompleteBtnClicked()
     {
         officeButtonUI.SetActive(false);
+
+        OnBackBtnClicked();
+
+        reservationTabUI.SetActive(true);
     }
 
     public void OnReservationClicked()
