@@ -154,7 +154,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     public void OnOfficeBtnClicked()
     {
-        lawyerProfileUI.SetActive(true);
+        //lawyerProfileUI.SetActive(true);
     }
 
     public void OnBackBtnClicked()
