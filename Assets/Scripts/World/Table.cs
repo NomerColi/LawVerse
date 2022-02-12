@@ -50,7 +50,7 @@ public class Table : MonoBehaviour
 
     public void EnableUI()
     {
-        canvas.gameObject.SetActive(true);
+        //canvas.gameObject.SetActive(true);
 
         for (int i = 0; i < agoraUIDList.Count; i++)
         {

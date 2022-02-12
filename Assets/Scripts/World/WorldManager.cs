@@ -99,6 +99,10 @@ public class WorldManager : MonoBehaviourPunCallbacks
 
 				numberPanel.SetNumberAfter();
 			}
+			else if (myPlayer.bSit)
+			{
+				StandUp();
+			}
 		}
 		else if (Input.GetKeyDown(KeyCode.B))
 		{
@@ -162,7 +166,7 @@ public class WorldManager : MonoBehaviourPunCallbacks
 
         Loading.Instance.Off();
 
-		tutorialUI.gameObject.SetActive(true);
+		//tutorialUI.gameObject.SetActive(true);
 	}
 
 	public bool CloseAllPopUp()
