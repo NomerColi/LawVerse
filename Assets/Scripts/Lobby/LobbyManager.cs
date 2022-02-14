@@ -127,6 +127,9 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     public void OnOfficeEnterBtnClicked(Office office)
     {
+        foreach (var light in office.lightList)
+            light.gameObject.SetActive(false);
+
         TeleportAfterWorldEnter.Instance.toPos = office.toTrans.position;
         TeleportAfterWorldEnter.Instance.toRot = office.toTrans.eulerAngles;
 
