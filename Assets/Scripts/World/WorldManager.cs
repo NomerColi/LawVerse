@@ -127,8 +127,8 @@ public class WorldManager : MonoBehaviourPunCallbacks
 					uiOn = true;
 			}
 
-			if (myPlayer.bSit)
-				uiOn = true;
+			//if (myPlayer.bSit)
+			//	uiOn = true;
 
 			//Debug.Log("UI TOGGELD   uiON : " + uiOn);
 

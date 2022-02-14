@@ -84,8 +84,6 @@ public class WorldPlayer : MonoBehaviourPunCallbacks
 		{
 			animator.SetBool("isWalking", false);
 			animator.SetBool("isRunning", false);
-
-			return;
 		}
 
 		if(PV.IsMine)
@@ -94,10 +92,17 @@ public class WorldPlayer : MonoBehaviourPunCallbacks
 				return;
 
 			Look();
+
+			if (bSit)
+				return;		
+
 			Move();
 		}
 		else 
 		{
+			if (bSit)
+				return;	
+
 			if (transform.position != prevPos)
 			{
 				animator.SetBool("isWalking", true);

@@ -11,7 +11,7 @@ public class Chair : ClickableObject
 
     PhotonView pv;
 
-    private float sitDis = 2.5f;
+    [SerializeField] private float sitDis = 1f;
 
 
     // Start is called before the first frame update
