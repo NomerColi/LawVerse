@@ -29,6 +29,10 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     public GameObject myOfficeBtn;
 
+    public Button lawWorldBtn;
+    public Button detectiveBuildingBtn;
+    public List<GameObject> officeLightList;
+
     public Transform QnABuildingTrans;
 
     public Text idText;
@@ -130,7 +134,31 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     {
         searchUI.SetActive(false);
 
-        
+        StartCoroutine(ShowSearchedLawyersRoutine());
+    }
+
+    private IEnumerator ShowSearchedLawyersRoutine()
+    {
+        lawWorldBtn.onClick.Invoke();
+
+        yield return new WaitForSeconds(cameraMoveTime);
+
+        detectiveBuildingBtn.onClick.Invoke();
+
+        yield return new WaitForSeconds(cameraMoveTime);
+
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (var light in officeLightList)
+                light.SetActive(true);
+
+            yield return new WaitForSeconds(0.2f);
+
+            foreach (var light in officeLightList)
+                light.SetActive(false);
+
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     public void OnWorldBtnClicked(World world)
