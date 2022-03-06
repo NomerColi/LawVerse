@@ -17,6 +17,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     public GameObject serviceChoiceUI;
     public GameObject commissionUI;
     public GameObject estimationUI;
+    public GameObject searchUI;
     public GameObject worldButtonUI;
     public GameObject buildingButtonUI;
     public List<GameObject> buildingButtonsList;
@@ -118,6 +119,18 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     {
         reservationTabUI.SetActive(false);
         commissionTabUI.SetActive(!commissionTabUI.activeSelf);
+    }
+
+    public void OnSearchBtnClicked()
+    {
+        searchUI.SetActive(true);
+    }
+
+    public void OnSearchCompleteBtnClicked()
+    {
+        searchUI.SetActive(false);
+
+        
     }
 
     public void OnWorldBtnClicked(World world)
