@@ -23,6 +23,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     public List<GameObject> buildingButtonsList;
     public GameObject officeButtonUI;
     public GameObject lawyerProfileUI;
+    public GameObject lendingUI;
 
     public GameObject reservationTabUI;
     public GameObject commissionTabUI;
@@ -166,6 +167,19 @@ public class LobbyManager : MonoSingleton<LobbyManager>
         StartCoroutine(FocusOnWorld(world));
     }
 
+    public void OnLendingBtnClicked(World world)
+    {
+        StartCoroutine(FocusOnWorld(world));
+
+        StartCoroutine(LendingUIRoutine());
+    }
+    private IEnumerator LendingUIRoutine()
+    {
+        yield return new WaitForSeconds(cameraMoveTime);
+
+        lendingUI.SetActive(true);
+    }
+
     public void OnOfficeEnterBtnClicked(Office office)
     {
         foreach (var light in office.lightList)
@@ -239,6 +253,8 @@ public class LobbyManager : MonoSingleton<LobbyManager>
             btn.SetActive(false);
             
         officeButtonUI.SetActive(false);
+
+        lendingUI.SetActive(false);
 
         lobbyCamera.Rotate(defaultCameraRot, cameraMoveTime);
         yield return lobbyCamera.Move(defaultCameraPos, cameraMoveTime);
