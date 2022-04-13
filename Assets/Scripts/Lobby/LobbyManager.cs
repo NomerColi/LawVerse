@@ -140,13 +140,18 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     private IEnumerator ShowSearchedLawyersRoutine()
     {
-        lawWorldBtn.onClick.Invoke();
+        if (worldButtonUI.activeSelf)
+        {
+            lawWorldBtn.onClick.Invoke();
 
-        yield return new WaitForSeconds(cameraMoveTime);
+            yield return new WaitForSeconds(cameraMoveTime);
+        }
+        if (buildingButtonUI.activeSelf)
+        {
+            detectiveBuildingBtn.onClick.Invoke();
 
-        detectiveBuildingBtn.onClick.Invoke();
-
-        yield return new WaitForSeconds(cameraMoveTime);
+            yield return new WaitForSeconds(cameraMoveTime);
+        }
 
         for (int i = 0; i < 3; i++)
         {

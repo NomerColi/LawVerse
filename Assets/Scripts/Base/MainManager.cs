@@ -11,6 +11,11 @@ public class MainManager : MonoBehaviour
     public List<Toggle> toggleList;
 
 
+    void Start()
+    {
+        Screen.SetResolution(1280, 720, false);
+    }
+
     public void OnToggle(int idx)
     {
         if (!toggleList[idx].isOn)
