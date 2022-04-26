@@ -60,6 +60,8 @@ public class WorldPlayer : MonoBehaviourPunCallbacks
 		{
 			Destroy(ui);
 
+			WorldManager.Instance.toggleObjectList.Add(geometry.gameObject);
+
 			SetVideoSurface(WorldManager.Instance.myVideoSurface);
 			WorldManager.Instance.EnableMyVideoSurface();
 

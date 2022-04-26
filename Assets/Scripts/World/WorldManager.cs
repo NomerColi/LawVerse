@@ -41,7 +41,9 @@ public class WorldManager : MonoBehaviourPunCallbacks
 
 	[SerializeField] private float teleportTime;
 
+	public List<GameObject> toggleObjectList;
 
+	private bool objToggled = true;
 	private bool bEnable = false;
 
 	void Awake()
@@ -115,6 +117,12 @@ public class WorldManager : MonoBehaviourPunCallbacks
 		else if (Input.GetKeyDown(KeyCode.M))
 		{
 			myPlayer.PlayCalling();
+		}
+		else if (Input.GetKeyDown(KeyCode.P))
+		{
+			objToggled = !objToggled;
+			foreach (var obj in toggleObjectList)
+				obj.SetActive(objToggled);
 		}
 
 		if (true)

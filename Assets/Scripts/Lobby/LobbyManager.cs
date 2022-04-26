@@ -12,6 +12,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     private Vector3 defaultCameraRot;
 
     public Canvas canvas;
+    public GameObject UI;
     public GameObject myAvatarUI;
     public GameObject avatarSelectUI;
     public GameObject serviceChoiceUI;
@@ -64,7 +65,10 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            UI.SetActive(!UI.activeSelf);
+        }
     }
 
     public void OnAvatarSelectBtnClicked(int idx)
