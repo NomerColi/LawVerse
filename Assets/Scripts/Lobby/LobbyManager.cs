@@ -44,6 +44,9 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 
     [SerializeField] private float cameraMoveTime;
 
+    private UIParent[] UIParents;
+    private bool bVisible = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,8 @@ public class LobbyManager : MonoSingleton<LobbyManager>
             myOfficeBtn.SetActive(true);
 
         avatarSelectUI.SetActive(true);
+
+        UIParents = GetComponentsInChildren<UIParent>();
     }
 
     // Update is called once per frame
@@ -67,7 +72,12 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            UI.SetActive(!UI.activeSelf);
+            bVisible = !bVisible;
+
+            myAvatarUI.SetActive(bVisible);
+
+            foreach (var UIParent in UIParents)
+                UIParent.SetVisible(bVisible);
         }
     }
 
@@ -105,7 +115,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
     {
         commissionUI.SetActive(false);
 
-        myAvatarUI.SetActive(true);
+        myAvatarUI.SetActive(bVisible);
         worldButtonUI.SetActive(true);
     }
 
@@ -268,7 +278,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
         lobbyCamera.Rotate(defaultCameraRot, cameraMoveTime);
         yield return lobbyCamera.Move(defaultCameraPos, cameraMoveTime);
 
-        myAvatarUI.SetActive(true);
+        myAvatarUI.SetActive(bVisible);
         worldButtonUI.SetActive(true);
     }
 }
